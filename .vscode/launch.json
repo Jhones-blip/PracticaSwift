@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug JhonesV2",
+            "program": "${workspaceFolder:JhonesV2}/.build/debug/JhonesV2",
+            "args": [],
+            "cwd": "${workspaceFolder:JhonesV2}",
+            "preLaunchTask": "swift: Build Debug JhonesV2"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Release JhonesV2",
+            "program": "${workspaceFolder:JhonesV2}/.build/release/JhonesV2",
+            "args": [],
+            "cwd": "${workspaceFolder:JhonesV2}",
+            "preLaunchTask": "swift: Build Release JhonesV2"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Test JhonesV2",
+            "program": "${workspaceFolder:JhonesV2}/.build/debug/JhonesV2PackageTests.xctest",
+            "cwd": "${workspaceFolder:JhonesV2}",
+            "preLaunchTask": "swift: Build All"
+        }
+    ]
+}
