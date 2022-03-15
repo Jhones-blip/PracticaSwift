@@ -6,12 +6,12 @@ class HomeTaxiApp{
 
     print("you want to do")
     print("1. Taxi\n2. Support")
-    guard var optionMenuSelected = readLine() else {return}
+    guard let optionMenuSelected = readLine() else {return}
 
     let taxi = CallTaxiView()
     let suport = SupportView()
 
-    var option = Int(optionMenuSelected)
+    let option = Int(optionMenuSelected)
 
         switch option {
             case 1:

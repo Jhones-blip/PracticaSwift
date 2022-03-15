@@ -1,4 +1,4 @@
-
+import Foundation
 class TaxiView{
 
     func callResult(){
@@ -30,18 +30,23 @@ class TaxiView{
 
         rateTaxiDriver(numberTaxiDriver: selectionTaxiDriver, rate: rate)
 
-        print("Desea realizar otro viaje y/n")
-        guard let answerTravel = readLine() else { return } 
 
-        repeatTravel(answer: answerTravel)
+        // let rateVerification = 0
+        // if rate<0 || rate > 5 {
+        //     repeat {
+        //         print("Ops! ingresaste una calificacion invalida, intente de nuevo")
+        //         guard let calificationTaxiDriver = readLine() else {return}
+        //         guard let rateVerification = Double(calificationTaxiDriver) else { return }
+        //     } while rateVerification < 0 || rateVerification > 5
+        // } else {
+        //     rateTaxiDriver(numberTaxiDriver: selectionTaxiDriver, rate: rate)
+        // }
+
+        let home = HomeTaxiApp()
+        home.homeTaxi()
     
     }
 
-    func repeatTravel(answer: String){
-        repeat{
-        callResult()
-        }while answer == "y"
-    }
 
     func printListTaxiDrivers(){
 
@@ -64,17 +69,31 @@ class TaxiView{
         print("El taxista que selecciono fue \(taxiDrivers[numberTaxiDriver-1].nombre ?? "")")
     }
 
-    func travelCountDown(){ 
+
+    
+
+    func timer() {
+    
+        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+
+    }
+
+    @objc func fireTimer() {
+
+        print("Timer fired!")
+    }
+
+    
+
+    func travelCountDown() async { 
         let timeTravelRamdom = Int.random(in: 5..<16)
 
         print("El viaje durara ", timeTravelRamdom, " segundos y terminara en..." )
 
-            //await Task.sleep(UInt64 1 * Double(NSEC_PER_SEC)))
-
-            // let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), 
-            // userInfo: nil, repeats: true) 
-
-            //print(coldownTime)
+        for coldownTime in   (0...timeTravelRamdom).reversed(){ 
+            await Task.sleep(nanoseconds: UInt64(1 * Double(timeTravelRamdom)))
+            print(coldownTime)
+        }
 
     }
 
@@ -84,15 +103,17 @@ class TaxiView{
 
 
         let taxiDriver = listTaxiDrivers
-        taxiDriver[numberTaxiDriver-1].calificacion = rate
 
-        let cantidadViajes = (taxiDriver[numberTaxiDriver-1].viajes += taxiDriver[numberTaxiDriver-1].viajes + 1)
+        taxiDriver[numberTaxiDriver-1].calificacion = taxiDriver[numberTaxiDriver-1].calificacion + rate
 
+        taxiDriver[numberTaxiDriver-1].viajes = taxiDriver[numberTaxiDriver-1].viajes + 1
 
-        //let avgRate = (taxiDriver[numberTaxiDriver-1].calificacion)/cantidadViajes
+        let avgRate = (taxiDriver[numberTaxiDriver-1].calificacion / taxiDriver[numberTaxiDriver-1].viajes)
 
-        print("El promedio actual de calificacion del conductor es: \(taxiDriver[numberTaxiDriver-1].calificacion)")
+        print("El promedio actual de calificacion del conductor es: ", avgRate)
         print("El conductor ha hecho ", taxiDriver[numberTaxiDriver-1].viajes, " viajes")
+        print("")
+        print("Gracias por viajar con nosotro vuelva pronto!")
         
 
     }
