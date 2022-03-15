@@ -2,11 +2,11 @@
 class TaxiView{
 
     func callResult(){
-        //print("A taxi will come to your home soon!\nApp finished.")
+        
 
-        print("Insert point A")
+        print("Inserte el punto de origen") 
         var pointA = readLine()
-        print("Insert point B")
+        print("Inserte el punto de destino")
         var pointB = readLine()
 
         print("")
@@ -18,9 +18,9 @@ class TaxiView{
         print("")
         print("Cual taxista desea seleccionar?")
         guard let selectedTaxiDriver = readLine() else {return}
-        guard let option = Int(selectedTaxiDriver) else { return }
+        guard let selectionTaxiDriver = Int(selectedTaxiDriver) else { return }
 
-        selectTaxiDriver(numberTaxiDriver: option )
+        selectTaxiDriver(numberTaxiDriver: selectionTaxiDriver )
 
         //UBICACION DEL TIMER DE VIAJE
 
@@ -28,10 +28,20 @@ class TaxiView{
         guard let calificationTaxiDriver = readLine() else {return}
         guard let rate = Double(calificationTaxiDriver) else { return }
 
-        rateTaxiDriver(numberTaxiDriver: option, rate: rate)
-        
+        rateTaxiDriver(numberTaxiDriver: selectionTaxiDriver, rate: rate)
+
+        print("Desea realizar otro viaje y/n")
+        guard let answerTravel = readLine() else { return } 
+
+        repeatTravel(answer: answerTravel)
+    
     }
 
+    func repeatTravel(answer: String){
+        repeat{
+        callResult()
+        }while answer == "y"
+    }
 
     func printListTaxiDrivers(){
 
@@ -76,7 +86,7 @@ class TaxiView{
         let taxiDriver = listTaxiDrivers
         taxiDriver[numberTaxiDriver-1].calificacion = rate
 
-        let cantidadViajes = (taxiDriver[numberTaxiDriver-1].viajes = taxiDriver[numberTaxiDriver-1].viajes + 1)
+        let cantidadViajes = (taxiDriver[numberTaxiDriver-1].viajes += taxiDriver[numberTaxiDriver-1].viajes + 1)
 
 
         //let avgRate = (taxiDriver[numberTaxiDriver-1].calificacion)/cantidadViajes
