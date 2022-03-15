@@ -2,7 +2,7 @@ class TaxiDriver{
     var nombre: String?
     var carro: String?
     var calificacion = 0.0
-    var viajes = 0
+    var viajes = 0.0
 
     init(nombre: String, carro: String){
         self.nombre = nombre
