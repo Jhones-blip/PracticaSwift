@@ -11,7 +11,7 @@ class TaxiDriver{
     }
 }
     
-var listTaxiDrivers = [
+var catalogueTaxiDrivers = [
     TaxiDriver(nameTaxiDriver: "Jhon", taxiDriverCarModel: "Mazda 2018"),
     TaxiDriver(nameTaxiDriver: "Pedro", taxiDriverCarModel: "Chevrolet 1999"),
     TaxiDriver(nameTaxiDriver: "Juan", taxiDriverCarModel: "Audi UT5"),

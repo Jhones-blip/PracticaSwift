@@ -35,7 +35,7 @@ class TaxiView{
 
     func printListTaxiDrivers(){
 
-        let taxiDrivers = listTaxiDrivers
+        let taxiDrivers = catalogueTaxiDrivers
 
         //taxiDriver.forEach({print($0.nombre ?? "")})
 
@@ -50,7 +50,7 @@ class TaxiView{
     }
 
     func selectTaxiDriver(numberTaxiDriver: Int){
-        let taxiDrivers = listTaxiDrivers
+        let taxiDrivers = catalogueTaxiDrivers
         print("The selected taxi driver was \(taxiDrivers[numberTaxiDriver-1].nameTaxiDriver ?? "")")
     }
 
@@ -73,7 +73,7 @@ class TaxiView{
         
         if rate <= 5 && rate >= 0 {
 
-            let taxiDriver = listTaxiDrivers
+            let taxiDriver = catalogueTaxiDrivers
 
             taxiDriver[numberTaxiDriver-1].taxiDriverRating = taxiDriver[numberTaxiDriver-1].taxiDriverRating + rate
 
