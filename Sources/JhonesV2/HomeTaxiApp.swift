@@ -21,7 +21,7 @@ class HomeTaxiApp{
             suport.support()
             
             default:
-            print("Opcion incorrecta")
+            print("Inv alid option")
         }
 
     }

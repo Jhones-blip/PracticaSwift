@@ -4,19 +4,19 @@ class TaxiView{
     func callResult(){
         
 
-        print("Inserte el punto de origen") 
+        print("Please insert point of origin") 
         var pointOriginTravel = readLine()
-        print("Inserte el punto de destino")
+        print("Please insert destination point")
         var finalDestinationTravel = readLine()
 
         print("")
-        print("La lista de taxistas disponibles para su area es: ")
+        print("The list of available taxi drivers is: ")
         
 
         printListTaxiDrivers()
 
         print("")
-        print("Cual taxista desea seleccionar?")
+        print("Which taxi driver do you want to select?")
         guard let selectedTaxiDriver = readLine() else {return}
         guard let selectionTaxiDriver = Int(selectedTaxiDriver) else { return }
 
@@ -51,14 +51,14 @@ class TaxiView{
 
     func selectTaxiDriver(numberTaxiDriver: Int){
         let taxiDrivers = listTaxiDrivers
-        print("El taxista que selecciono fue \(taxiDrivers[numberTaxiDriver-1].nameTaxiDriver ?? "")")
+        print("The selected taxi driver was \(taxiDrivers[numberTaxiDriver-1].nameTaxiDriver ?? "")")
     }
 
  
     func travelCountDown() { 
         let timeTravelRamdom = Int.random(in: 5..<16)
 
-        print("El viaje durara ", timeTravelRamdom, " segundos " )
+        print("The trip will last ", timeTravelRamdom, " seconds " )
 
     }
 
@@ -66,7 +66,7 @@ class TaxiView{
 
     func rateTaxiDriver(numberTaxiDriver: Int){
 
-        print("Su viaje a terminado, por favor calififque el conductor!")
+        print("Your trip is over, please rate the driver!")
         guard let calificationTaxiDriver = readLine() else {return}
         guard let rate = Double(calificationTaxiDriver) else { return }
 
@@ -81,14 +81,14 @@ class TaxiView{
 
             let avgRate = (taxiDriver[numberTaxiDriver-1].taxiDriverRating / taxiDriver[numberTaxiDriver-1].taxiDriverTrips)
 
-            print("El promedio actual de calificacion del conductor es: ", avgRate)
-            print("El conductor ha realizado ", taxiDriver[numberTaxiDriver-1].taxiDriverTrips, " viajes")
+            print("The current average driver rating is: ", avgRate)
+            print("The driver has done ", taxiDriver[numberTaxiDriver-1].taxiDriverTrips, " trips")
             print("")
-            print("Gracias por viajar con nosotro vuelva pronto!")
+            print("Thank you for traveling with us, come back soon!")
 
         }else{
 
-            print("Ops! ingrese una calificacon valida entre 0 y 5")
+            print("Oops! enter a valid rating between 0 and 5")
             // guard let calificationTaxiDriver = readLine() else {return}
             // guard let rate = Double(calificationTaxiDriver) else { return }
 
