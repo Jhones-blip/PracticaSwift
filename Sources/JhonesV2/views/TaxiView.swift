@@ -5,9 +5,9 @@ class TaxiView{
         
 
         print("Inserte el punto de origen") 
-        var pointA = readLine()
+        var pointOrigin = readLine()
         print("Inserte el punto de destino")
-        var pointB = readLine()
+        var finalDestination = readLine()
 
         print("")
         print("La lista de taxistas disponibles para su area es: ")
@@ -42,7 +42,7 @@ class TaxiView{
         var count = 1
         for taxiDriver in taxiDrivers {
     
-            print(count,"- ", taxiDriver.nombre ?? "", "- ", taxiDriver.carro ?? "", "- ", "Calificacion " ,taxiDriver.calificacion ?? "", "- " ," Puntaje ",taxiDriver.viajes ?? "")
+            print(count,"- ", taxiDriver.nameTaxiDriver ?? "", "- ", taxiDriver.taxiDriverCarModel ?? "", "- ", "Calificacion " ,taxiDriver.taxiDriverRating ?? "", "- " ," Puntaje ",taxiDriver.taxiDriverTrips ?? "")
             count+=1
             
         }
@@ -51,7 +51,7 @@ class TaxiView{
 
     func selectTaxiDriver(numberTaxiDriver: Int){
         let taxiDrivers = listTaxiDrivers
-        print("El taxista que selecciono fue \(taxiDrivers[numberTaxiDriver-1].nombre ?? "")")
+        print("El taxista que selecciono fue \(taxiDrivers[numberTaxiDriver-1].nameTaxiDriver ?? "")")
     }
 
  
@@ -75,14 +75,14 @@ class TaxiView{
 
             let taxiDriver = listTaxiDrivers
 
-            taxiDriver[numberTaxiDriver-1].calificacion = taxiDriver[numberTaxiDriver-1].calificacion + rate
+            taxiDriver[numberTaxiDriver-1].taxiDriverRating = taxiDriver[numberTaxiDriver-1].taxiDriverRating + rate
 
-            taxiDriver[numberTaxiDriver-1].viajes = taxiDriver[numberTaxiDriver-1].viajes + 1
+            taxiDriver[numberTaxiDriver-1].taxiDriverTrips = taxiDriver[numberTaxiDriver-1].taxiDriverTrips + 1
 
-            let avgRate = (taxiDriver[numberTaxiDriver-1].calificacion / taxiDriver[numberTaxiDriver-1].viajes)
+            let avgRate = (taxiDriver[numberTaxiDriver-1].taxiDriverRating / taxiDriver[numberTaxiDriver-1].taxiDriverTrips)
 
             print("El promedio actual de calificacion del conductor es: ", avgRate)
-            print("El conductor ha realizado ", taxiDriver[numberTaxiDriver-1].viajes, " viajes")
+            print("El conductor ha realizado ", taxiDriver[numberTaxiDriver-1].taxiDriverTrips, " viajes")
             print("")
             print("Gracias por viajar con nosotro vuelva pronto!")
 
