@@ -5,9 +5,9 @@ class TaxiView{
         
 
         print("Inserte el punto de origen") 
-        var pointOrigin = readLine()
+        var pointOriginTravel = readLine()
         print("Inserte el punto de destino")
-        var finalDestination = readLine()
+        var finalDestinationTravel = readLine()
 
         print("")
         print("La lista de taxistas disponibles para su area es: ")
