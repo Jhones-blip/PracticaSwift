@@ -4,7 +4,7 @@ class HomeTaxiApp{
 
     print("Wellcome to taxiApp")
 
-    print("you want to do")
+    print("What do you want to do")
     print("1. Taxi\n2. Support")
     guard let optionMenuSelected = readLine() else {return}
 
