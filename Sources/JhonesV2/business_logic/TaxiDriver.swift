@@ -5,8 +5,6 @@ class TaxiDriverLogic {
 
         let taxiDrivers = catalogueTaxiDrivers
 
-        //taxiDriver.forEach({print($0.nombre ?? "")})
-
         var count = 1
         for taxiDriver in taxiDrivers {
     
@@ -22,7 +20,6 @@ class TaxiDriverLogic {
         print("The selected taxi driver was \(taxiDrivers[numberTaxiDriver-1].nameTaxiDriver ?? "")")
     }
 
- 
     func travelCountDown() { 
         let timeTravelRamdom = Int.random(in: 5..<16)
 
@@ -30,15 +27,12 @@ class TaxiDriverLogic {
 
     }
 
-    
-
     func rateTaxiDriver(numberTaxiDriver: Int){
 
         print("Your trip is over, please rate the driver!")
         guard let calificationTaxiDriver = readLine() else {return}
         guard let rate = Double(calificationTaxiDriver) else { return }
 
-        
         if rate <= 5 && rate >= 0 {
 
             let taxiDriver = catalogueTaxiDrivers
@@ -57,16 +51,8 @@ class TaxiDriverLogic {
         }else{
 
             print("Oops! enter a valid rating between 0 and 5")
-            // guard let calificationTaxiDriver = readLine() else {return}
-            // guard let rate = Double(calificationTaxiDriver) else { return }
-
 
             rateTaxiDriver(numberTaxiDriver: numberTaxiDriver)
         }
-        
-
-        
-        
-
     }
 }
